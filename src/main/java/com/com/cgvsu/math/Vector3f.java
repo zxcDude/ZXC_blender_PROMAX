@@ -1,4 +1,4 @@
-package com.com.сgvsu.math;
+package com.com.cgvsu.math;
 
 public class Vector3f {
     public float x, y, z;

@@ -1,8 +1,8 @@
-package com.сgvsu.render_engine;
+package com.com.cgvsu.render_engine;
 
-import com.сgvsu.math.Matrix4f;
-import com.сgvsu.math.Vector3f;
-import com.сgvsu.math.Vector2f;
+import com.com.cgvsu.math.Matrix4f;
+import com.com.cgvsu.math.Vector3f;
+import com.com.cgvsu.math.Vector2f;
 
 public class GraphicConveyor {
 

@@ -4,54 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18bd7c7f-e095-4107-961e-32b6b6e0697c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/pom.xml" beforeDir="false" />
+    <list default="true" id="54c5777b-1a48-4fec-bf85-b0016436c61e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/math/Matrix4f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/math/Vector2f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/math/Vector3f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/model/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/model/Polygon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/objreader/ObjReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/objreader/ObjReaderException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/com/сgvsu/render_engine/GraphicConveyor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/src/main/java/module-info.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/math/Matrix4f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/math/Matrix4f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/math/Point2f.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/math/Vector3f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/math/Vector3f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/model/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/model/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/objreader/ObjReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/objreader/ObjReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/objreader/ObjReaderException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/objreader/ObjReaderException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/com/сgvsu/render_engine/GraphicConveyor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/com/cgvsu/render_engine/GraphicConveyor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="module-info" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
-}</component>
-  <component name="ProjectId" id="38R7wCsCQIWB2NJw0nh8A9haPxu" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="38SPp6Kxkbxzdo9IliMmW7RLEo9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/ZXC_blender_PROMAX&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/ZXC_blender_PROMAX",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="18bd7c7f-e095-4107-961e-32b6b6e0697c" name="Changes" comment="" />
-      <created>1768750767834</created>
+      <changelist id="54c5777b-1a48-4fec-bf85-b0016436c61e" name="Changes" comment="" />
+      <created>1768790183761</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1768750767834</updated>
+      <updated>1768790183761</updated>
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package com.com.сgvsu.math;
+package com.com.cgvsu.math;
 
 public class Matrix4f {
     public float[] m = new float[16];

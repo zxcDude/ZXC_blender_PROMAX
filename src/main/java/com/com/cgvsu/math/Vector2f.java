@@ -1,4 +1,4 @@
-package com.сgvsu.math;
+package com.com.cgvsu.math;
 
 public class Vector2f {
     public float x, y;
