@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
 import java.io.File;
+import javafx.scene.image.WritableImage;
 
 import com.com.cgvsu.math.Vector3f;
 import com.com.cgvsu.model.Model;
@@ -32,6 +33,12 @@ public class GuiController {
     private Canvas canvas;
 
     private Model mesh = null;
+
+    private WritableImage texture = new WritableImage(1, 1); // Заглушка
+
+    private boolean useTexture = false;
+
+    private boolean useLighting = true;
 
     private Camera camera = new Camera(
             new Vector3f(0, 00, 100),
@@ -56,7 +63,16 @@ public class GuiController {
             camera.setAspectRatio((float) (width / height));
 
             if (mesh != null) {
-                RenderEngine.render(canvas.getGraphicsContext2D(), camera, mesh, (int) width, (int) height);
+                RenderEngine.render(
+                        canvas.getGraphicsContext2D(),
+                        camera,
+                        mesh,
+                        (int) width,
+                        (int) height,
+                        texture,
+                        useTexture,
+                        useLighting
+                );
             }
         });
 

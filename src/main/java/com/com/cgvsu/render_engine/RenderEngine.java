@@ -6,6 +6,8 @@ import com.com.cgvsu.math.Vector3f;
 import javafx.scene.canvas.GraphicsContext;
 import com.com.cgvsu.model.Model;
 import com.com.cgvsu.model.Polygon;
+import javafx.scene.image.WritableImage;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,10 @@ public class RenderEngine {
             final Camera camera,
             final Model mesh,
             final int width,
-            final int height)
+            final int height,
+            final WritableImage texture,
+            boolean useTexture,
+            boolean useLighting)
     {
         Matrix4f modelMatrix = rotateScaleTranslate();
         Matrix4f viewMatrix = camera.getViewMatrix();
@@ -57,13 +62,61 @@ public class RenderEngine {
                             resultPoints.get(next).y);
                 }
 
+                // Интерполяция UV (только если есть данные)
+                Vector2f uv0 = null, uv1 = null, uv2 = null;
+                if (!mesh.textureVertices.isEmpty() && !triangle.getTextureVertexIndices().isEmpty()) {
+                    uv0 = mesh.textureVertices.get(triangle.getTextureVertexIndices().get(0));
+                    uv1 = mesh.textureVertices.get(triangle.getTextureVertexIndices().get(1));
+                    uv2 = mesh.textureVertices.get(triangle.getTextureVertexIndices().get(2));
+                }
+
+                // Интерполяция нормалей (только если есть данные)
+                Vector3f n0 = new Vector3f(0, 0, 1); // ← нормаль по умолчанию
+                Vector3f n1 = new Vector3f(0, 0, 1);
+                Vector3f n2 = new Vector3f(0, 0, 1);
+                if (!mesh.normals.isEmpty() && !triangle.getNormalIndices().isEmpty()) {
+                    n0 = mesh.normals.get(triangle.getNormalIndices().get(0));
+                    n1 = mesh.normals.get(triangle.getNormalIndices().get(1));
+                    n2 = mesh.normals.get(triangle.getNormalIndices().get(2));
+                }
+
+                // Освещение
+                Vector3f lightDir = new Vector3f(0, 0, -1); // свет от камеры
+
                 // Заполнение треугольника
                 for (int x = 0; x < width; x++) {
                     for (int y = 0; y < height; y++) {
                         if (isPointInTriangle(x, y, resultPoints)) {
                             float z = interpolateZ(x, y, resultPoints, zValues);
                             if (zBuffer.shouldDraw(x, y, z)) {
-                                graphicsContext.fillRect(x, y, 1, 1);
+                                if (useLighting) {
+                                    Vector2f p = new Vector2f(x + 0.5f, y + 0.5f);
+                                    float area = edgeFunction(resultPoints.get(0), resultPoints.get(1), resultPoints.get(2));
+                                    if (Math.abs(area) < 1e-6f) continue;
+
+                                    float w0 = edgeFunction(resultPoints.get(1), resultPoints.get(2), p) / area;
+                                    float w1 = edgeFunction(resultPoints.get(2), resultPoints.get(0), p) / area;
+                                    float w2 = edgeFunction(resultPoints.get(0), resultPoints.get(1), p) / area;
+
+                                    // Интерполяция нормали
+                                    Vector3f normal = new Vector3f(
+                                            w0 * n0.x + w1 * n1.x + w2 * n2.x,
+                                            w0 * n0.y + w1 * n1.y + w2 * n2.y,
+                                            w0 * n0.z + w1 * n1.z + w2 * n2.z
+                                    ).normalize();
+
+                                    // Интенсивность освещения
+                                    float intensity = Math.max(0.3f, -normal.dot(lightDir));
+
+                                    // Серый цвет с освещением
+                                    Color color = new Color(intensity, intensity, intensity, 1.0);
+                                    graphicsContext.setFill(color);
+                                    graphicsContext.fillRect(x, y, 1, 1);
+                                } else {
+                                    // Простая заливка (если освещение выключено)
+                                    graphicsContext.setFill(Color.LIGHTGRAY);
+                                    graphicsContext.fillRect(x, y, 1, 1);
+                                }
                             }
                         }
                     }
@@ -78,5 +131,9 @@ public class RenderEngine {
 
     private static float interpolateZ(int x, int y, ArrayList<Vector2f> points, ArrayList<Float> zValues) {
         return (zValues.get(0) + zValues.get(1) + zValues.get(2)) / 3;
+    }
+
+    private static float edgeFunction(Vector2f a, Vector2f b, Vector2f c) {
+        return (c.x - a.x) * (b.y - a.y) - (c.y - a.y) * (b.x - a.x);
     }
 }
