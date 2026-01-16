@@ -5,7 +5,10 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
@@ -31,6 +34,14 @@ public class GuiController {
 
     @FXML
     private Canvas canvas;
+    @FXML
+    private CheckMenuItem wireframeCheck;
+    @FXML
+    private CheckMenuItem textureCheck;
+    @FXML
+    private CheckMenuItem lightingCheck;
+    @FXML
+    private MenuItem toggleThemeItem;
 
     private Model mesh = null;
 
@@ -39,6 +50,8 @@ public class GuiController {
     private boolean useTexture = false;
 
     private boolean useLighting = true;
+    private boolean drawWireframe = true;
+    private boolean isDarkTheme = false;
 
     private Camera camera = new Camera(
             new Vector3f(0, 00, 100),
@@ -78,6 +91,22 @@ public class GuiController {
 
         timeline.getKeyFrames().add(frame);
         timeline.play();
+
+        wireframeCheck.selectedProperty().addListener((obs, old, newVal) -> drawWireframe = newVal);
+        textureCheck.selectedProperty().addListener((obs, old, newVal) -> useTexture = newVal);
+        lightingCheck.selectedProperty().addListener((obs, old, newVal) -> useLighting = newVal);
+    }
+
+    @FXML
+    private void toggleTheme() {
+        Scene scene = canvas.getScene();
+        scene.getStylesheets().clear();
+        if (isDarkTheme) {
+            scene.getStylesheets().add(getClass().getResource("light-theme.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(getClass().getResource("dark-theme.css").toExternalForm());
+        }
+        isDarkTheme = !isDarkTheme;
     }
 
     @FXML
