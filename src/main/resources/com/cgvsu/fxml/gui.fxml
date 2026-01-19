@@ -6,8 +6,9 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.CheckMenuItem?>
 
-<AnchorPane fx:id="anchorPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.com.cgvsu.GuiController">
+<AnchorPane fx:id="anchorPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.cgvsu.GuiController">
     <MenuBar>
         <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#onOpenModelMenuItemClick" text="Load Model">
@@ -47,6 +48,15 @@
                     <KeyCodeCombination alt="UP" control="UP" meta="UP" shift="UP" shortcut="UP" code="S"/>
                 </accelerator>
             </MenuItem>
+        </Menu>
+
+        <Menu text="Render Mode">
+            <CheckMenuItem fx:id="wireframeCheck" selected="true" text="Wireframe"/>
+            <CheckMenuItem fx:id="textureCheck" selected="false" text="Texture"/>
+            <CheckMenuItem fx:id="lightingCheck" selected="false" text="Lighting"/>
+        </Menu>
+        <Menu text="Theme">
+            <MenuItem fx:id="toggleThemeItem" text="Toggle Theme" onAction="#toggleTheme"/>
         </Menu>
     </MenuBar>
 

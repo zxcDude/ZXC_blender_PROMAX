@@ -26,7 +26,7 @@ public class Matrix4f {
 
     public Vector3f multiply(Vector3f v) {
         float w = m[3] * v.x + m[7] * v.y + m[11] * v.z + m[15];
-        if (w == 0) w = 1; // avoid division by zero
+        if (w == 0) w = 1;
         return new Vector3f(
                 (m[0] * v.x + m[4] * v.y + m[8] * v.z + m[12]) / w,
                 (m[1] * v.x + m[5] * v.y + m[9] * v.z + m[13]) / w,
